@@ -1,44 +1,48 @@
+-- Departamentos
 INSERT INTO departamento (codigo, descricao, cod_gerente) VALUES
-(1, 'Recursos Humanos', NULL),
-(2, 'Tecnologia da Informação', NULL),
+(1, 'TI', NULL),
+(2, 'Recursos Humanos', NULL),
 (3, 'Marketing', NULL),
-(4, 'Financeiro', NULL),
-(5, 'Logística', NULL);
+(4, 'Financeiro', NULL);
+
 
 INSERT INTO funcionario (codigo, nome, sexo, dt_nasc, salario, cod_depto) VALUES
-(101, 'Ana Paula', 'F', '1990-03-15', 5500.00, 1),
-(102, 'Rael', 'M', '1985-11-23', 7000.00, 2),
-(103, 'Mariana Souza', 'F', '1998-07-10', 4800.00, 3),
-(104, 'Denner', 'M', '1975-05-05', 9000.00, 4),
-(105, 'Fernanda Lima', 'F', '1992-01-20', 5000.00, 5);
+(1, 'João Silva', 'M', '1980-05-12', 5000.00, 1),
+(2, 'Maria Santos', 'F', '1975-11-03', 7500.00, 2),
+(3, 'Carlos Lima', 'M', '1992-08-19', 4800.00, 1),
+(4, 'Ana Costa', 'F', '1988-02-10', 6000.00, 3),
+(5, 'Bruno Rocha', 'M', '1995-06-22', 4500.00, 2),
+(6, 'Paula Menezes', 'F', '1999-12-13', 3000.00, 3),
+(7, 'Lucas Almeida', 'M', '1990-01-01', 8000.00, NULL), 
+(8, 'Fernanda Lemos', 'F', '1997-03-15', 7200.00, 4),
+(9, 'Vinícius Prado', 'M', '2000-07-17', 3900.00, 4),
+(10, 'Camila Dias', 'F', '1998-10-30', 5500.00, 1);
 
 
-UPDATE departamento SET cod_gerente = 101 WHERE codigo = 1;
-UPDATE departamento SET cod_gerente = 102 WHERE codigo = 2;
-UPDATE departamento SET cod_gerente = 103 WHERE codigo = 3;
-UPDATE departamento SET cod_gerente = 104 WHERE codigo = 4;
-UPDATE departamento SET cod_gerente = 105 WHERE codigo = 5;
+UPDATE departamento SET cod_gerente = 1 WHERE codigo = 1;
+UPDATE departamento SET cod_gerente = 2 WHERE codigo = 2;
+UPDATE departamento SET cod_gerente = 4 WHERE codigo = 3;
+UPDATE departamento SET cod_gerente = 8 WHERE codigo = 4;
 
-
+-- Projetos
 INSERT INTO projeto (codigo, nome, descricao, cod_depto, cod_responsavel, data_inicio, data_fim) VALUES
-(201, 'Recrutamento 2025', 'Planejamento anual de contratações.', 1, 101, '2025-01-01', '2025-03-31'),
-(202, 'Infraestrutura TI', 'Upgrade dos servidores e redes.', 2, 102, '2025-02-15', '2025-06-30'),
-(203, 'Campanha Publicitária', 'Promoção de novos produtos.', 3, 103, '2025-03-01', '2025-05-15'),
-(204, 'Auditoria Interna', 'Revisão de processos financeiros.', 4, 104, '2025-01-10', '2025-04-10'),
-(205, 'Otimização Logística', 'Reestruturação da cadeia de suprimentos.', 5, 105, '2025-04-01', '2025-08-01');
+(1, 'Sistema Web', 'Desenvolvimento de sistema web', 1, 3, '2024-01-01', '2024-06-30'),
+(2, 'Recrutamento 2024', 'Nova política de contratação', 2, 2, '2024-02-15', '2024-04-30'),
+(3, 'Campanha de Marketing', 'Divulgação institucional', 3, 6, '2024-03-01', '2024-08-31'),
+(4, 'Auditoria Fiscal', 'Auditoria do segundo semestre', 4, 7, '2024-01-15', '2024-05-15'),
+(5, 'Migrar Servidores', 'Migração para nuvem', 1, 4, '2024-04-01', '2024-07-31'); -- Responsável de outro departamento
 
 
 INSERT INTO atividade (codigo, nome, descricao, cod_responsavel, data_inicio, data_fim) VALUES
-(301, 'Triagem de Currículos', 'Análise inicial de candidatos.', 101, '2025-01-01', '2025-01-31'),
-(302, 'Configuração de Servidores', 'Instalação de novos equipamentos.', 102, '2025-02-20', '2025-03-15'),
-(303, 'Criação de Peças Visuais', 'Design para anúncios.', 103, '2025-03-05', '2025-03-20'),
-(304, 'Levantamento de Dados', 'Coleta de documentos financeiros.', 104, '2025-01-15', '2025-02-15'),
-(305, 'Mapeamento de Rotas', 'Análise logística de entrega.', 105, '2025-04-05', '2025-05-01');
-
+(1, 'Criar Banco de Dados', 'Modelagem inicial', 3, '2024-01-05', '2024-01-15'),
+(2, 'Selecionar candidatos', 'Entrevistas iniciais', 2, '2024-02-20', '2024-03-01'),
+(3, 'Design Gráfico', 'Criação de banners', 6, '2024-03-10', '2024-04-10'),
+(4, 'Revisão Fiscal', 'Verificação de impostos', 9, '2024-01-20', '2024-05-20'),
+(5, 'Backup Dados', 'Configuração automática de backup', 4, '2024-03-25', '2024-03-30');
 
 INSERT INTO atividade_projeto (cod_projeto, cod_atividade) VALUES
-(201, 301),
-(202, 302),
-(203, 303),
-(204, 304),
-(205, 305);
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5);
