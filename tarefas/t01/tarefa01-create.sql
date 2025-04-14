@@ -1,4 +1,3 @@
--- tarefa01-create.sql
 CREATE TABLE departamento (
     codigo INT PRIMARY KEY,
     descricao VARCHAR(100),
