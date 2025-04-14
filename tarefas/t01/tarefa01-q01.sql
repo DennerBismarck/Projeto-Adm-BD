@@ -1,3 +1,5 @@
+--Questão 1 da lista original
+
 SELECT nome
 FROM funcionario
 WHERE salario > (
